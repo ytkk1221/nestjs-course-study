@@ -8,6 +8,7 @@
 2.全局安装nest-cli
 
 3.使用nest-cli命令创建项目
+
 ```bazaar
 nest new
 ```
