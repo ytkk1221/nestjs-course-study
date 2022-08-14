@@ -8,6 +8,7 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true, // 白名单，去除DTO以外的无效属性
       forbidNonWhitelisted: true, // 让DTO以外的无效属性抛出异常
+      transform: true, // DTO转化为实例或自动转化类型，例如:string => number
     }),
   );
   await app.listen(3000);
