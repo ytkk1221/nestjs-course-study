@@ -39,5 +39,5 @@ npm install --save @nestjs/typeorm typeorm pg
 npm install --save @nestjs/typeorm typeorm mysql2
 ```
 #### bug记录
-- 25节疑似typeorm0.3以上版本findOne用法发生变化可改用findOneBy
+- 25节疑似typeorm0.3以上版本findOne用法发生变化可改用findOneBy，但是在27节需要使用relations又改回了findOne并查阅findOne新用法
 

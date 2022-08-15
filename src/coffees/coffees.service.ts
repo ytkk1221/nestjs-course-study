@@ -14,12 +14,19 @@ export class CoffeesService {
   ) {}
 
   findAll() {
-    return this.coffeeRepository.find();
+    return this.coffeeRepository.find({
+      relations: ['flavors'],
+    });
   }
 
   async findOne(id: number) {
-    // 疑似typeorm 0.3以上findOne方法修改了，改用findOneBy
-    const coffee = await this.coffeeRepository.findOneBy({ id });
+    // 疑似typeorm 0.3以上findOne方法修改了，改用findOneBy、findOne新用法
+    const coffee = await this.coffeeRepository.findOne({
+      relations: ['flavors'],
+      where: {
+        id,
+      },
+    });
     if (!coffee) {
       // throw new HttpException(`Coffee #${id} not found`, HttpStatus.NOT_FOUND);
       throw new NotFoundException(`Coffee #${id} not found`);
