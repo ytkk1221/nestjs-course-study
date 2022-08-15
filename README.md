@@ -38,5 +38,6 @@ npm install --save @nestjs/typeorm typeorm pg
 ```bash
 npm install --save @nestjs/typeorm typeorm mysql2
 ```
-
+#### bug记录
+- 25节疑似typeorm0.3以上版本findOne用法发生变化可改用findOneBy
 
