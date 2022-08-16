@@ -11,7 +11,7 @@ import { COFFEE_BRANDS } from './coffees.constants';
 import { ConfigService } from '@nestjs/config';
 
 /*服务是业务逻辑的核心以及和数据源的交互*/
-@Injectable({ scope: Scope.REQUEST })
+@Injectable()
 export class CoffeesService {
   constructor(
     @InjectRepository(Coffee)
@@ -23,7 +23,7 @@ export class CoffeesService {
     private readonly configService: ConfigService,
   ) {
     console.log('CoffeesService instantiated');
-    const databaseHost = this.configService.get('DATABASE_HOST','localhost');
+    const databaseHost = this.configService.get('database.host','localhost');
     console.log(databaseHost);
   }
 

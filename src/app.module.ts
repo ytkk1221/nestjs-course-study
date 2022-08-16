@@ -7,15 +7,17 @@ import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
+import appConfig from './config/app.config';
 // import * as Joi from '@hapi/joi';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      validationSchema: Joi.object({
-        DATABASE_HOST: Joi.required(), // 验证环境变量
-        DATABASE_PORT: Joi.number().default(3306),
-      }),
+      load: [appConfig],
+      // validationSchema: Joi.object({
+      //   DATABASE_HOST: Joi.required(), // 验证环境变量
+      //   DATABASE_PORT: Joi.number().default(3306),
+      // }),
     }),
     CoffeesModule,
     TypeOrmModule.forRoot({
