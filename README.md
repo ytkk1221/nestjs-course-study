@@ -47,6 +47,23 @@ npm install --save @nestjs/typeorm typeorm mysql2
 ```bash
 npm i @nestjs/config
 ```
+> 46节@hapi/joi报错 改用 joi
+```bash
+npm i joi
+import * as Joi from 'joi';
+```
+
 #### bug记录
 - 25节疑似typeorm0.3以上版本findOne用法发生变化可改用findOneBy，但是在27节需要使用relations又改回了findOne并查阅findOne新用法
+- 46节@hapi/joi报错 改用 joi
+```bash
+视频：
+npm i --save-dev @types/hapi__joi
+import * as Joi from '@hapi/joi';
+
+本人：
+npm i joi
+import * as Joi from 'joi';
+
+```
 
