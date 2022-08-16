@@ -9,5 +9,6 @@ import { Event } from '../events/entities/event.entity';
   imports: [TypeOrmModule.forFeature([Coffee, Flavor, Event])], // 导入实体
   controllers: [CoffeesController],
   providers: [CoffeesService],
+  exports: [CoffeesService],
 })
 export class CoffeesModule {}
