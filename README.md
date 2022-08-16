@@ -38,6 +38,9 @@ npm install --save @nestjs/typeorm typeorm pg
 ```bash
 npm install --save @nestjs/typeorm typeorm mysql2
 ```
+
+> 32节数据迁移，因根据视频操作出现报错等原因，暂时跳过，数据迁移部分暂时也用不到后续在进行学习。
+> 
 #### bug记录
 - 25节疑似typeorm0.3以上版本findOne用法发生变化可改用findOneBy，但是在27节需要使用relations又改回了findOne并查阅findOne新用法
 
