@@ -1,17 +1,16 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { Coffee } from './entities/coffee.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { CreateCoffeeDto } from './dto/create-coffee.dto';
-import { UpdateCoffeeDto } from './dto/update-coffee.dto';
-import { Flavor } from './entities/flavor.entity';
-import { Event } from '../events/entities/event.entity';
-import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
-import { Connection } from 'typeorm';
-import { COFFEE_BRANDS } from './coffees.constants';
+import { Inject, Injectable, NotFoundException, Scope } from "@nestjs/common";
+import { Coffee } from "./entities/coffee.entity";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Connection, Repository } from "typeorm";
+import { CreateCoffeeDto } from "./dto/create-coffee.dto";
+import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
+import { Flavor } from "./entities/flavor.entity";
+import { Event } from "../events/entities/event.entity";
+import { PaginationQueryDto } from "../common/dto/pagination-query.dto";
+import { COFFEE_BRANDS } from "./coffees.constants";
 
 /*服务是业务逻辑的核心以及和数据源的交互*/
-@Injectable()
+@Injectable({scope:Scope.REQUEST})
 export class CoffeesService {
   constructor(
     @InjectRepository(Coffee)
