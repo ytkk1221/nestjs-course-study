@@ -53,6 +53,11 @@ npm i joi
 import * as Joi from 'joi';
 ```
 > 51节-52节理论
+
+> 61节安装swagger
+```bash
+npm install --save @nestjs/swagger swagger-ui-express
+```
 #### bug记录
 - 25节疑似typeorm0.3以上版本findOne用法发生变化可改用findOneBy，但是在27节需要使用relations又改回了findOne并查阅findOne新用法
 - 46节@hapi/joi报错 改用 joi
