@@ -15,6 +15,7 @@ import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 import { Request } from 'express';
 import { REQUEST } from '@nestjs/core';
+import { Public } from '../common/decorators/public.decorators';
 @Controller('coffees')
 export class CoffeesController {
   // 构造函数中注入：coffeesService ，private：私有的 readonly：只读的
@@ -24,7 +25,7 @@ export class CoffeesController {
   ) {
     console.log('CoffeesController instantiated');
   }
-
+  @Public()
   @Get()
   findAll(@Query() paginationQuery: PaginationQueryDto) {
     return this.coffeesService.findAll(paginationQuery);
