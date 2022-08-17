@@ -67,3 +67,8 @@ import * as Joi from 'joi';
 
 ```
 
+- 57节 throwError(new RequestTimeoutException())被弃用
+```bash
+旧：return throwError(new RequestTimeoutException()); 
+新：return throwError(() => new RequestTimeoutException());
+```

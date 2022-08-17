@@ -18,10 +18,6 @@ async function bootstrap() {
       },
     }),
   );
-  app.useGlobalInterceptors(
-    new WrapResponseInterceptor(),
-    new TimeoutInterceptor(),
-  );
   await app.listen(3000);
 }
 bootstrap();
