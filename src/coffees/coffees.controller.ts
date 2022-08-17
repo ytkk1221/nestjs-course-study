@@ -17,6 +17,7 @@ import { Request } from 'express';
 import { REQUEST } from '@nestjs/core';
 import { Public } from '../common/decorators/public.decorators';
 import { ParseIntPipe } from '../common/pipes/parse-int.pipe';
+import { Protocol } from '../common/decorators/protocol.decorator';
 @Controller('coffees')
 export class CoffeesController {
   // 构造函数中注入：coffeesService ，private：私有的 readonly：只读的
@@ -28,7 +29,11 @@ export class CoffeesController {
   }
   @Public()
   @Get()
-  async findAll(@Query() paginationQuery: PaginationQueryDto) {
+  async findAll(
+    @Protocol('https') protocol,
+    @Query() paginationQuery: PaginationQueryDto,
+  ) {
+    console.log(protocol);
     // await new Promise((resolve) => setTimeout(resolve, 5000)); // 模拟五秒
     return this.coffeesService.findAll(paginationQuery);
   }
