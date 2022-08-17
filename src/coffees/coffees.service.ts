@@ -8,7 +8,8 @@ import { Flavor } from './entities/flavor.entity';
 import { Event } from '../events/entities/event.entity';
 import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 import { COFFEE_BRANDS } from './coffees.constants';
-import { ConfigService } from '@nestjs/config';
+import { ConfigService, ConfigType } from "@nestjs/config";
+import coffeesConfig from "./config/coffees.config";
 
 /*服务是业务逻辑的核心以及和数据源的交互*/
 @Injectable()
@@ -20,11 +21,13 @@ export class CoffeesService {
     private readonly flavorRepository: Repository<Flavor>,
     private readonly connection: Connection,
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
-    private readonly configService: ConfigService,
+    @Inject(coffeesConfig.KEY)
+    private readonly coffeesConfiguration: ConfigType<typeof coffeesConfig>,
   ) {
     console.log('CoffeesService instantiated');
-    const databaseHost = this.configService.get('database.host','localhost');
-    console.log(databaseHost);
+    console.log(coffeesConfiguration);
+    // const databaseHost = this.configService.get('coffees.foo');
+    // console.log(databaseHost);
   }
 
   findAll(paginationQuery: PaginationQueryDto) {

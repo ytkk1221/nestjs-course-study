@@ -8,6 +8,7 @@ import { Event } from '../events/entities/event.entity';
 import { COFFEE_BRANDS } from './coffees.constants';
 import { Connection } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
+import coffeesConfig from './config/coffees.config';
 
 // @Injectable()
 // export class CoffeeBrandsFactory {
@@ -18,7 +19,10 @@ import { ConfigModule } from '@nestjs/config';
 // }
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Coffee, Flavor, Event]), ConfigModule], // 导入实体
+  imports: [
+    TypeOrmModule.forFeature([Coffee, Flavor, Event]),
+    ConfigModule.forFeature(coffeesConfig),
+  ], // 导入实体
   controllers: [CoffeesController],
   providers: [
     CoffeesService,
