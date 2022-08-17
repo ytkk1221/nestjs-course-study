@@ -16,6 +16,7 @@ import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 import { Request } from 'express';
 import { REQUEST } from '@nestjs/core';
 import { Public } from '../common/decorators/public.decorators';
+import { ParseIntPipe } from '../common/pipes/parse-int.pipe';
 @Controller('coffees')
 export class CoffeesController {
   // 构造函数中注入：coffeesService ，private：私有的 readonly：只读的
@@ -31,9 +32,10 @@ export class CoffeesController {
     // await new Promise((resolve) => setTimeout(resolve, 5000)); // 模拟五秒
     return this.coffeesService.findAll(paginationQuery);
   }
-
+  @Public()
   @Get(':id')
-  findOne(@Param('id') id: number) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    console.log(id);
     return this.coffeesService.findOne(id);
   }
 
