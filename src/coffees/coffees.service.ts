@@ -8,8 +8,8 @@ import { Flavor } from './entities/flavor.entity';
 import { Event } from '../events/entities/event.entity';
 import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 import { COFFEE_BRANDS } from './coffees.constants';
-import { ConfigService, ConfigType } from "@nestjs/config";
-import coffeesConfig from "./config/coffees.config";
+import { ConfigService, ConfigType } from '@nestjs/config';
+import coffeesConfig from './config/coffees.config';
 
 /*服务是业务逻辑的核心以及和数据源的交互*/
 @Injectable()
