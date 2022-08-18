@@ -68,6 +68,12 @@ npm install --save @nestjs/swagger swagger-ui-express
     ]
   }
 ```
+
+> 66节-71节为单元测试部分，因是知识盲区，且不影响项目搭建过程暂且跳过后续有空再进行深入学习。
+
+> 72节-80节为第二章MongoDB补充部分，因无MongoDB的需求暂不做学习与MySQL类似
+
+
 #### bug记录
 - 25节疑似typeorm0.3以上版本findOne用法发生变化可改用findOneBy，但是在27节需要使用relations又改回了findOne并查阅findOne新用法
 - 46节@hapi/joi报错 改用 joi
